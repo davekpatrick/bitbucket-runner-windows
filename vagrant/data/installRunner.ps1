@@ -1,5 +1,9 @@
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 Write-Host "IsAdmin: " $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+# install required prerequistes 
+choco install -y git
+choco install -y openjdk11
+choco install -y dotnetfx --pre
 # download the runner zip
 Invoke-WebRequest -Uri https://product-downloads.atlassian.com/software/bitbucket/pipelines/atlassian-bitbucket-pipelines-runner-1.330.zip -OutFile .\atlassian-bitbucket-pipelines-runner.zip
 # unzip the file
